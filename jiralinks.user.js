@@ -9,6 +9,7 @@
 // @match        https://github.com/**
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @downloadURL  https://github.com/Vlatombe/tampermonkey-scripts/raw/main/jiralinks.user.js
 // @run-at       document-end
 // @grant        none
 // @license      MIT
