@@ -7,7 +7,7 @@
 // @match        https://github.com/**
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
-// run-at       document-end
+// @run-at       document-end
 // @grant        none
 // @license      MIT
 // ==/UserScript==
