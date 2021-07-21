@@ -1,3 +1,5 @@
+"use strict";
+
 // ==UserScript==
 // @name         GitHub/Jira Links
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
