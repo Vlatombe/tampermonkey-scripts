@@ -3,13 +3,13 @@
 // ==UserScript==
 // @name         GitHub/Jira Links
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
-// @version      0.3
+// @version      0.4
 // @description  Generates link to Jira issues from Github
 // @author       vlatombe
 // @match        https://github.com/**
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @updateURL  https://github.com/Vlatombe/tampermonkey-scripts/raw/main/jiralinks.user.js
+// @updateURL    https://github.com/Vlatombe/tampermonkey-scripts/raw/main/jiralinks.user.js
 // @downloadURL  https://github.com/Vlatombe/tampermonkey-scripts/raw/main/jiralinks.user.js
 // @run-at       document-end
 // @grant        none
