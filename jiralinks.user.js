@@ -3,7 +3,7 @@
 // ==UserScript==
 // @name         GitHub/Jira Links
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
-// @version      0.1
+// @version      0.2
 // @description  Generates link to Jira issues from Github
 // @author       vlatombe
 // @match        https://github.com/**
