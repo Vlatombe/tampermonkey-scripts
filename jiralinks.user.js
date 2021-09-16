@@ -3,7 +3,7 @@
 // ==UserScript==
 // @name         GitHub/Jira Links
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
-// @version      0.4
+// @version      0.5
 // @description  Generates link to Jira issues from Github
 // @author       vlatombe
 // @match        https://github.com/**
@@ -25,7 +25,7 @@ function getJiraUrl(issueKey) {
 
 function doIt(node) {
     var regex = new RegExp('([A-Z][A-Z0-9]*\-[0-9]+)', 'g');
-    var regexNot = new RegExp('([A-Z][A-Z0-9]*\-[0-9]+)"', 'g');
+    var regexNot = new RegExp('href|([A-Z][A-Z0-9]*\-[0-9]+)"', 'g');
     $(".full-commit>.commit-title, .markdown-title, pre, h1, .comment-body").each(function(k,v) {
         var text = $(this).html()
         var issueKeys = []
