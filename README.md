@@ -21,3 +21,13 @@ They link to the adjacent runs of the same workflow, keeping the current tab and
 It reuses the Unify UI's own session to call the API, so no personal access token is needed.
 
 * [Install](https://github.com/Vlatombe/tampermonkey-scripts/raw/main/unify-run-prev-next.user.js)
+
+# CloudBees Unify: Runs branch filters
+
+This adds a row of quick branch filter chips to CloudBees Unify component runs pages.
+It shows the component's default branch, branches you pinned, and the branches built most recently, and clicking one filters the runs list by that branch.
+It works even for branches missing from the built-in Ref filter, which only lists the first 1000 branches.
+Pins are stored per component in the browser's local storage.
+It reuses the Unify UI's own session to call the API, so no personal access token is needed.
+
+* [Install](https://github.com/Vlatombe/tampermonkey-scripts/raw/main/unify-runs-branch-filters.user.js)
