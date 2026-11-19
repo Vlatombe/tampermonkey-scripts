@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CloudBees Unify run previous/next
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
-// @version      2026.11.19.0950
+// @version      2026.11.19.0957
 // @description  Adds previous/next run buttons to CloudBees Unify run details pages
 // @author       vlatombe
 // @match        https://cloudbees.io/*
@@ -15,11 +15,12 @@
 (function () {
   'use strict';
 
-  const API = 'https://api.cloudbees.io';
+  const apiBase = () => (window.__env__ && window.__env__.NX_API_GATEWAY_URL) || 'https://api.cloudbees.io';
   const UUID = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
-  // /<org-domain>/<subOrgId>/components/<componentId>/runs/<workflowId>/<runId>/<attempt>[/<tab>...]
+  // /<org-domain>[/<subOrgId>]/components/<componentId>/runs/<workflowId>/<runId>[/<attempt>][/<tab>...]
+  // Newer UI URLs drop the organization from the path and pass it as ?organizationId= instead.
   const RUN_PATH = new RegExp(
-    `^(/[^/]+/(${UUID})/components/(${UUID})/runs/(${UUID})/)(${UUID})/(\\d+)(/.*)?$`,
+    `^((?:/[^/]+)*?/(?:(${UUID})/)?components/(${UUID})/runs/(${UUID})/)(${UUID})(?:/(\\d+))?(/.*)?$`,
     'i',
   );
   const CONTAINER_ID = 'cb-run-prev-next';
@@ -30,13 +31,15 @@
   function parseLocation() {
     const m = location.pathname.match(RUN_PATH);
     if (!m) return null;
+    const orgId = m[2] || new URLSearchParams(location.search).get('organizationId');
+    if (!orgId) return null;
     return {
       prefix: m[1],
-      orgId: m[2],
+      orgId,
       componentId: m[3],
       workflowId: m[4],
       runId: m[5],
-      attempt: m[6],
+      attempt: m[6] || '1',
       rest: m[7] || '',
     };
   }
@@ -58,7 +61,7 @@
   async function api(path, init = {}) {
     const token = accessToken();
     if (!token) throw new Error('no access token');
-    const res = await fetch(API + path, {
+    const res = await fetch(apiBase() + path, {
       ...init,
       headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', ...init.headers },
     });
