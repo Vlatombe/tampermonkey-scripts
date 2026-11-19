@@ -5,3 +5,11 @@
 This detects patterns in commits, pull requests that look like jira ids and convert them to links.
 
 * [Install](https://github.com/Vlatombe/tampermonkey-scripts/raw/main/jiralinks.user.js)
+
+# CloudBees Unify run Gantt
+
+This adds a "Gantt" button to CloudBees Unify run pages (components, applications and releases).
+It opens a live Gantt chart of all the jobs of the run, showing which jobs are blocked on dependencies and which are queued for a runner.
+It reuses the Unify UI's own session to call the API, so no personal access token is needed.
+
+* [Install](https://github.com/Vlatombe/tampermonkey-scripts/raw/main/unify-run-gantt.user.js)
