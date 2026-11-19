@@ -9,6 +9,7 @@ This detects patterns in commits, pull requests that look like jira ids and conv
 # CloudBees Unify: Run Gantt
 
 This adds a "Gantt" button to CloudBees Unify run pages (components, applications and releases).
+The button sits next to the jobs panel toggle on the Jobs tab, and floats in the bottom-right corner on other tabs.
 It opens a live Gantt chart of all the jobs of the run, showing which jobs are blocked on dependencies and which are queued for a runner.
 It reuses the Unify UI's own session to call the API, so no personal access token is needed.
 
