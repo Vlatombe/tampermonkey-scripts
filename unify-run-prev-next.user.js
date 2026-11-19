@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         CloudBees Unify run previous/next
+// @name         CloudBees Unify: Run previous/next
 // @namespace    http://github.com/Vlatombe/tampermonkey-scripts
-// @version      2026.11.19.0957
+// @version      2026.11.19.1005
 // @description  Adds previous/next run buttons to CloudBees Unify run details pages
 // @author       vlatombe
 // @match        https://cloudbees.io/*
